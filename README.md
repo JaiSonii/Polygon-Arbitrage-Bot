@@ -19,26 +19,8 @@ This bot continuously monitors token prices across different DEXes on Polygon (U
 
 ## 🏗️ Architecture
 
-\`\`\`
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Blockchain    │    │   DEX Clients   │    │   Database      │
-│   RPC Client    │    │ (Uniswap/Quick) │    │   (PostgreSQL)  │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-         │                       │                       │
-         └───────────────────────┼───────────────────────┘
-                                 │
-                    ┌─────────────────┐
-                    │  Arbitrage Bot  │
-                    │   Orchestrator  │
-                    └─────────────────┘
-                             │
-         ┌───────────────────┼───────────────────┐
-         │                   │                   │
-┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
-│   Arbitrage     │ │     Profit      │ │   Opportunity   │
-│   Detector      │ │   Calculator    │ │    Analyzer     │
-└─────────────────┘ └─────────────────┘ └─────────────────┘
-\`\`\`
+![Architecture](./architecture.png)
+
 
 ## 🚀 Quick Start
 
@@ -245,44 +227,3 @@ RUST_LOG=debug cargo run
 - **RPC Security**: Use secure RPC endpoints
 - **Database Security**: Secure your PostgreSQL instance
 - **Network Security**: Consider running in a secure environment
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## 📞 Support
-
-For issues and questions:
-1. Check the troubleshooting section
-2. Review existing GitHub issues
-3. Create a new issue with detailed information
-
-## 🚨 Disclaimer
-
-This bot is for educational and research purposes only. It simulates arbitrage opportunities but does not execute actual trades. Always do your own research and understand the risks involved in arbitrage trading.
-
-The bot's profit calculations are estimates and may not reflect actual trading results due to:
-- Market volatility
-- Slippage
-- Gas price fluctuations
-- Network congestion
-- MEV (Maximal Extractable Value) competition
-
-## 🔮 Future Enhancements
-
-- [ ] Support for additional DEXes (SushiSwap, 1inch, etc.)
-- [ ] Real-time WebSocket price feeds
-- [ ] Advanced profit calculation models
-- [ ] MEV protection strategies
-- [ ] Web dashboard for monitoring
-- [ ] Alert system for high-profit opportunities
-- [ ] Machine learning for market prediction
-- [ ] Cross-chain arbitrage detection
